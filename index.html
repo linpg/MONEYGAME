@@ -1,17 +1,116 @@
-                'https://me.wegosm666.com/#/login?redirect=%2Fdashboard',
-                'https://pay.drmpro.net/',
-                'https://mer.llspayment.com/mer/',
-                'https://b2bqwf.twwalletb2bmanagerbdklc.com/login'
-                'https://b2b.twwalletb2bmanagerab.com'
-            ];
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            // 遍歷網址並開啟
-@@ -68,7 +68,7 @@ <h1>選擇要開啟的連接</h1>
-    <button onclick="window.open('https://me.wegosm666.com/#/login?redirect=%2Fdashboard')">GOSM</button>
-    <button onclick="window.open('https://pay.drmpro.net/')">DMP</button>
-    <button onclick="window.open('https://mer.llspayment.com/mer/')">HAPPY</button>
-    <button onclick="window.open('https://b2bqwf.twwalletb2bmanagerbdklc.com/login')">EB</button>
-    <button onclick="window.open('https://b2b.twwalletb2bmanagerab.com')">EB</button>
-    <button onclick="window.open('https://time.is/zh/')">TIME.IS</button>
+    <title>選擇要開啟的連接</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: Arial, "Microsoft JhengHei", sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 30px;
+            font-size: 28px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        button {
+            min-width: 120px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            background: #333;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #555;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>選擇要開啟的連接</h1>
+
+    <div class="button-container">
+
+        <button onclick="openLink('https://me.wegosm666.com/#/login?redirect=%2Fdashboard')">
+            GOSM
+        </button>
+
+        <button onclick="openLink('https://pay.drmpro.net/')">
+            DMP
+        </button>
+
+        <button onclick="openLink('https://mer.llspayment.com/mer/')">
+            HAPPY
+        </button>
+
+        <button onclick="openLink('https://b2bqwf.twwalletb2bmanagerbdklc.com/login')">
+            EB
+        </button>
+
+        <button onclick="openLink('https://b2b.twwalletb2bmanagerab.com')">
+            EB
+        </button>
+
+        <button onclick="openLink('https://time.is/zh/')">
+            TIME.IS
+        </button>
+
+    </div>
+
+
+    <script>
+
+        // 所有要開啟的網址
+        const links = [
+            'https://me.wegosm666.com/#/login?redirect=%2Fdashboard',
+            'https://pay.drmpro.net/',
+            'https://mer.llspayment.com/mer/',
+            'https://b2bqwf.twwalletb2bmanagerbdklc.com/login',
+            'https://b2b.twwalletb2bmanagerab.com',
+            'https://time.is/zh/'
+        ];
+
+
+        // 開啟指定網址
+        function openLink(url) {
+
+            window.open(url, '_blank');
+
+        }
+
+    </script>
+
 </body>
 </html>
