@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -54,6 +55,20 @@
         button:active {
             transform: translateY(0);
         }
+
+        /* 一鍵開啟全部按鈕 */
+        .all-button {
+            width: 100%;
+            margin-bottom: 20px;
+            background: #2563eb;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .all-button:hover {
+            background: #1d4ed8;
+        }
+
     </style>
 </head>
 
@@ -61,6 +76,18 @@
 
     <h1>選擇要開啟的連接</h1>
 
+
+    <!-- 一鍵開啟全部 -->
+    <div class="button-container">
+
+        <button class="all-button" onclick="openAllLinks()">
+            🚀 一鍵開啟全部
+        </button>
+
+    </div>
+
+
+    <!-- 個別網站按鈕 -->
     <div class="button-container">
 
         <button onclick="openLink('https://me.wegosm666.com/#/login?redirect=%2Fdashboard')">
@@ -75,12 +102,16 @@
             HAPPY
         </button>
 
-        <button onclick="openLink('https://b2bqwf.twwalletb2bmanagerbdklc.com/login')">
-            EB
+        <button onclick="openLink('https://merchant.cgpay.io')">
+            cgpay
         </button>
 
         <button onclick="openLink('https://b2b.twwalletb2bmanagerab.com')">
             EB
+        </button>
+
+           <button onclick="openLink('https://dev.gppay.asia/#/signin/fd36c515-0a31-43aa-88e5-c065aa2d232a')">
+            GO
         </button>
 
         <button onclick="openLink('https://time.is/zh/')">
@@ -97,16 +128,25 @@
             'https://me.wegosm666.com/#/login?redirect=%2Fdashboard',
             'https://pay.drmpro.net/',
             'https://mer.llspayment.com/mer/',
-            'https://b2bqwf.twwalletb2bmanagerbdklc.com/login',
-            'https://b2b.twwalletb2bmanagerab.com',
+            'https://dev.gppay.asia/#/signin/fd36c515-0a31-43aa-88e5-c065aa2d232a',
+             'https://merchant.cgpay.io',
+             'https://b2b.twwalletb2bmanagerab.com',
             'https://time.is/zh/'
         ];
 
 
-        // 開啟指定網址
+        // 開啟單一網址
         function openLink(url) {
-
             window.open(url, '_blank');
+        }
+
+
+        // 一鍵開啟全部網址
+        function openAllLinks() {
+
+            links.forEach(function(url) {
+                window.open(url, '_blank');
+            });
 
         }
 
@@ -114,3 +154,4 @@
 
 </body>
 </html>
+```
