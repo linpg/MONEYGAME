@@ -1,74 +1,385 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MONEYGAME - 一鍵開啟</title>
+
+    <title>MLB 賽事分析</title>
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
+            margin: 0;
+            font-family: Arial, "Microsoft JhengHei", sans-serif;
+            background: #f4f6f8;
+            color: #222;
         }
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: #f0f0f0;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #e0e0e0;
-        }
-        /* 特別將"全部開啟"按鈕樣式弄得顯眼一點 */
-        .open-all-btn {
-            background-color: #4CAF50;
+
+        header {
+            background: #111827;
             color: white;
-            border: none;
-            font-weight: bold;
-            padding: 15px 30px;
-            display: block; /* 讓它單獨一行 */
-            margin: 20px auto; /* 置中 */
+            padding: 25px 20px;
         }
-        .open-all-btn:hover {
-            background-color: #45a049;
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            color: #cbd5e1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .top-bar h2 {
+            margin: 0;
+        }
+
+        button {
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #status {
+            margin-bottom: 15px;
+            color: #64748b;
+        }
+
+        .games {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .game-time {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .team {
+            width: 40%;
+        }
+
+        .team.away {
+            text-align: left;
+        }
+
+        .team.home {
+            text-align: right;
+        }
+
+        .vs {
+            width: 20%;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .info {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 15px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 14px;
+        }
+
+        .label {
+            color: #64748b;
+        }
+
+        .empty {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+        }
+
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 8px;
         }
     </style>
-    <script>
-        function openAllLinks() {
-            // 定義所有要開啟的網址
-            const urls = [
-                'https://dev.gppay.asia/#/signin/fd36c515-0a31-43aa-88e5-c065aa2d232a',
-                'https://merchant.cgpay.io',
-                'https://me.wegosm666.com/#/login?redirect=%2Fdashboard',
-                'https://pay.drmpro.net/',
-                'https://mer.llspayment.com/mer/',
-                'https://b2b.twwalletb2bmanagerab.com'
-            ];
-
-            // 遍歷網址並開啟
-            urls.forEach(url => {
-                window.open(url, '_blank');
-            });
-        }
-    </script>
 </head>
-<body>
-    <h1>選擇要開啟的連接</h1>
-    
-    <button class="open-all-btn" onclick="openAllLinks()">🚀 一鍵開啟全部網頁</button>
-    
-    <hr style="width: 50%; margin: 20px auto;">
 
-    <button onclick="window.open('https://dev.gppay.asia/#/signin/fd36c515-0a31-43aa-88e5-c065aa2d232a')">GO</button>
-    <button onclick="window.open('https://merchant.cgpay.io')">CG</button>
-    <button onclick="window.open('https://me.wegosm666.com/#/login?redirect=%2Fdashboard')">GOSM</button>
-    <button onclick="window.open('https://pay.drmpro.net/')">DMP</button>
-    <button onclick="window.open('https://mer.llspayment.com/mer/')">HAPPY</button>
-    <button onclick="window.open('https://b2b.twwalletb2bmanagerab.com')">EB</button>
-    <button onclick="window.open('https://time.is/zh/')">TIME.IS</button>
+<body>
+
+<header>
+    <div class="container">
+        <h1>⚾ MLB 賽事分析</h1>
+        <p>MLB.com × PlaySport × 台灣運彩</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="top-bar">
+        <h2>今日 MLB 賽事</h2>
+        <button onclick="loadGames()">🔄 重新整理</button>
+    </div>
+
+    <div id="status">
+        正在取得 MLB 賽程...
+    </div>
+
+    <div id="games" class="games">
+        <div class="loading">
+            正在載入比賽資料...
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    // ==========================================
+    // 取得今天日期
+    // ==========================================
+
+    function getToday() {
+
+        const today = new Date();
+
+        const year = today.getFullYear();
+
+        const month = String(today.getMonth() + 1).padStart(2, "0");
+
+        const day = String(today.getDate()).padStart(2, "0");
+
+        return `${year}-${month}-${day}`;
+    }
+
+
+    // ==========================================
+    // 取得 MLB 賽程
+    // ==========================================
+
+    async function loadGames() {
+
+        const gamesContainer = document.getElementById("games");
+
+        const status = document.getElementById("status");
+
+        gamesContainer.innerHTML = `
+            <div class="loading">
+                正在取得 MLB 賽程...
+            </div>
+        `;
+
+        status.innerText = "正在連線 MLB 官方資料...";
+
+        const today = getToday();
+
+        const apiUrl =
+            `https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${today}`;
+
+
+        try {
+
+            const response = await fetch(apiUrl);
+
+            if (!response.ok) {
+                throw new Error("MLB API 回應錯誤");
+            }
+
+            const data = await response.json();
+
+            console.log("MLB API 資料：", data);
+
+            displayGames(data);
+
+        } catch (error) {
+
+            console.error(error);
+
+            status.innerText = "";
+
+            gamesContainer.innerHTML = `
+                <div class="error">
+                    ⚠️ 無法取得 MLB 賽程。<br><br>
+                    請稍後重新整理頁面。
+                </div>
+            `;
+        }
+    }
+
+
+    // ==========================================
+    // 顯示比賽
+    // ==========================================
+
+    function displayGames(data) {
+
+        const gamesContainer = document.getElementById("games");
+
+        const status = document.getElementById("status");
+
+        gamesContainer.innerHTML = "";
+
+        if (!data.dates || data.dates.length === 0) {
+
+            gamesContainer.innerHTML = `
+                <div class="empty">
+                    今天沒有 MLB 比賽。
+                </div>
+            `;
+
+            status.innerText = "資料來源：MLB Stats API";
+
+            return;
+        }
+
+
+        const games = data.dates[0].games;
+
+        status.innerText =
+            `今天共有 ${games.length} 場 MLB 比賽`;
+
+
+        games.forEach(game => {
+
+            const awayTeam =
+                game.teams.away.team.name;
+
+            const homeTeam =
+                game.teams.home.team.name;
+
+
+            const gameTime =
+                new Date(game.gameDate)
+                .toLocaleTimeString("zh-TW", {
+                    hour: "2-digit",
+                    minute: "2-digit"
+                });
+
+
+            const venue =
+                game.venue?.name || "球場資料讀取中";
+
+
+            const gameCard = document.createElement("div");
+
+            gameCard.className = "game-card";
+
+
+            gameCard.innerHTML = `
+
+                <div class="game-time">
+                    🕐 ${gameTime}
+                </div>
+
+                <div class="teams">
+
+                    <div class="team away">
+                        ${awayTeam}
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="team home">
+                        ${homeTeam}
+                    </div>
+
+                </div>
+
+                <div class="info">
+
+                    <div class="info-row">
+                        <span class="label">
+                            比賽狀態
+                        </span>
+
+                        <span>
+                            ${game.status.detailedState}
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">
+                            球場
+                        </span>
+
+                        <span>
+                            ${venue}
+                        </span>
+                    </div>
+
+                </div>
+            `;
+
+
+            gamesContainer.appendChild(gameCard);
+
+        });
+
+    }
+
+
+    // ==========================================
+    // 網頁開啟時自動取得
+    // ==========================================
+
+    loadGames();
+
+</script>
+
 </body>
 </html>
